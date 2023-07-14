@@ -24,7 +24,7 @@ class CategoryController extends Controller
         // Validate and store the new product
         $category = new Category;
         $category->name = $request->name;
-        $category->slug = Str::slug($request->name);;
+        $category->slug = Str::slug($request->name);
         $category->save();
 
         return redirect()->back();
@@ -38,8 +38,8 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('products.edit', compact('product'));
+        $categories = Category::find($id);
+        return view('admin.category.edit', compact('categories'));
     }
 
     public function update(Request $request, $id)
@@ -47,10 +47,10 @@ class CategoryController extends Controller
         // Validate and update the product
         $category = Category::find($id);
         $category->name = $request->name;
-        $category->price = $request->price;
+        $category->slug = Str::slug($request->name);
         $category->save();
 
-        return redirect()->route('products.index');
+        return redirect()->back();
     }
 
     public function destroy($id)
@@ -59,7 +59,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return redirect()->route('products.index');
+        return redirect()->back();
     }
 
 }

@@ -7,7 +7,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Bordered table</h4>
-                <p class="card-description">    <a href="{{ url('/category/create') }}" class="btn btn-outline-success">Add Category</a>
+                <p class="card-description">    <a href="{{ url('/products/create') }}" class="btn btn-outline-success">Add Product</a>
                 </p>
                 <div class="table-responsive">
                   <table class="table table-bordered">
