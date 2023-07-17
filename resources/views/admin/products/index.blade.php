@@ -14,20 +14,28 @@
                     <thead>
                       <tr>
                         <th> # </th>
-                        <th> Category name </th>
+                        <th> Product  name </th>
+                        <th> Product  name </th>
                         <th colspan="2" class="text-center"> Action </th>
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($products as $product)
 
                       <tr>
                         <td> {{ $loop->iteration }} </td>
-                        <td> {{  $category->name }} </td>
+                        <td> {{  $product->title }} </td>
+                        <td> <img src="{{asset('images').'/' .$product->image}}" alt=""> </td>
                         <td>
-                            <a href="{{ url('/category/' . $category->id . '/edit') }}" class="btn btn-outline-warning">Edit</a></td>
+                            <a href="{{ url('/products/' . $product->id . '/edit') }}" class="btn btn-outline-warning">Edit</a></td>
                         <td>
-                            <a href="{{ url('/category/'.$category->id ) }}" class="btn btn-outline-danger">Delete</a></td>
+                            <form action="{{ route('products.destroy',$product) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                            </form>
+
+                        </td>
                       </tr>
                         @endforeach
                     </tbody>

@@ -10,7 +10,7 @@
             <div class="card-body">
               <h4 class="card-title">Create product</h4>
               <p class="card-description"> Basic form elements </p>
-              <form class="forms-sample" action="{{ url('/products') }}" method="POST">
+              <form class="forms-sample" action="{{ url('/products') }}" method="POST"  enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                   <label for="exampleInputName1">Product Name</label>
@@ -19,7 +19,9 @@
                 <div class="form-group">
                   <label for="exampleInputName1">Product Category</label>
                   <select class="form-control" name="category">
-                    <option value="">Category1</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                   </select>
                 </div>
 
@@ -49,7 +51,7 @@
                     <input type="Number" class="form-control" id="exampleInputName1" name="qty" placeholder="Name">
                 </div>
 
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="submit" class="btn btn-primary mr-2">Save</button>
                 <button class="btn btn-dark">Cancel</button>
               </form>
             </div>

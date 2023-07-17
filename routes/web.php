@@ -40,10 +40,21 @@ Route::get('/category/{id}', [CategoryController::class,'destroy']);
 
 Route::resource('/products', ProductController::class);
 
-// GET|HEAD        products ............................ products.index › ProductController@index
-// POST            products ............................ products.store › ProductController@store
-// GET|HEAD        products/create ................... products.create › ProductController@create
+// GET|HEAD        products ............................ products.index › ProductController@index   	{{ route('products.create') }}
+// POST            products ............................ products.store › ProductController@store	{{ route('products.store') }}
+// GET|HEAD        products/create ................... products.create › ProductController@create	{{ route('products.update', $product) }}
 // GET|HEAD        products/{product} .................... products.show › ProductController@show
-// PUT|PATCH       products/{product} ................ products.update › ProductController@update
+// PUT|PATCH       products/{product} ................ products.update › ProductController@update  @method('PUT')
 // DELETE          products/{product} .............. products.destroy › ProductController@destroy
 // GET|HEAD        products/{product}/edit ............... products.edit › ProductController@edit
+
+
+// <td>
+// <a href="{{ route('products.show', $product) }}" class="btn btn-primary">View</a>
+// <a href="{{ route('products.edit', $product) }}" class="btn btn-secondary">Edit</a>
+// <form action="{{ route('products.destroy ', $product) }}" method="POST" class="d-inline">
+//     @csrf
+//     @method('DELETE')
+//     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+// </form>
+// </td>
