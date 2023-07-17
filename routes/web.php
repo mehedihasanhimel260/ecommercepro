@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontendProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@ Route::post('/category/{id}', [CategoryController::class,'update']);
 Route::get('/category/{id}', [CategoryController::class,'destroy']);
 
 Route::resource('/products', ProductController::class);
+Route::get('/singleproduct', [FrontendProductController::class,'index']);
+
 
 // GET|HEAD        products ............................ products.index › ProductController@index   	{{ route('products.create') }}
 // POST            products ............................ products.store › ProductController@store	{{ route('products.store') }}
