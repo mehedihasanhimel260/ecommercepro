@@ -40,7 +40,7 @@ Route::post('/category/{id}', [CategoryController::class,'update']);
 Route::get('/category/{id}', [CategoryController::class,'destroy']);
 
 Route::resource('/products', ProductController::class);
-Route::get('/singleproduct', [FrontendProductController::class,'index']);
+Route::get('/singleproduct/{id}', [FrontendProductController::class,'index']);
 
 
 // GET|HEAD        products ............................ products.index › ProductController@index   	{{ route('products.create') }}

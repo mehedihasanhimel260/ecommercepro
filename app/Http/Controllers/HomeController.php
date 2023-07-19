@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $products = Product::orderByDesc('id')->take(1)->get();
+        $products = Product::orderByDesc('id')->take(6)->get();
         return view('home.main',compact('products'));
     }
     public function redirect(){

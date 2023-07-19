@@ -13,7 +13,7 @@
             <div class="box">
                <div class="option_container">
                   <div class="options">
-                     <a href="{{ url('/singleproduct') }}" class="option1">
+                     <a href="{{ url('/singleproduct/' . $product->id) }}" class="option1">
                      View ditails
                      </a>
                      <a href="" class="option2">

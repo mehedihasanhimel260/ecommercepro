@@ -14,13 +14,13 @@
                         </ol>
                         <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="images/slider-bg.jpg" class="d-block w-100" alt="...">
+                            <img src="{{ asset('/') }}images/slider-bg.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/slider-bg.jpg" class="d-block w-100" alt="...">
+                            <img src="{{ asset('/') }}images/slider-bg.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/slider-bg.jpg" class="d-block w-100" alt="...">
+                            <img src="{{ asset('/') }}images/slider-bg.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -38,11 +38,11 @@
                     <h3 class="font-weight-semi-bold">Colorful Stylish Shirt</h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star-half-alt"></small>
-                            <small class="far fa-star"></small>
+                            <small class="fa fa-star text-danger"></small>
+                            <small class="fa fa-star text-danger"></small>
+                            <small class="fa fa-star text-danger"></small>
+                            <small class="fa fa-star-half-o text-danger"></small>
+                            <small class="fa fa-star-o text-danger"></small>
                         </div>
                         <small class="pt-1">(50 Reviews)</small>
                     </div>
@@ -52,23 +52,23 @@
                         <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
                         <form>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-1" name="size">
+                                <input type="radio" class="custom-control-input btn-outline-danger" id="size-1" name="size">
                                 <label class="custom-control-label" for="size-1">XS</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-2" name="size">
+                                <input type="radio" class="custom-control-input btn-outline-danger" id="size-2" name="size">
                                 <label class="custom-control-label" for="size-2">S</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-3" name="size">
+                                <input type="radio" class="custom-control-input btn-outline-danger" id="size-3" name="size">
                                 <label class="custom-control-label" for="size-3">M</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-4" name="size">
+                                <input type="radio" class="custom-control-input btn-outline-danger" id="size-4" name="size">
                                 <label class="custom-control-label" for="size-4">L</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-5" name="size">
+                                <input type="radio" class="custom-control-input btn-outline-danger" id="size-5" name="size">
                                 <label class="custom-control-label" for="size-5">XL</label>
                             </div>
                         </form>
@@ -77,23 +77,23 @@
                         <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
                         <form>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-1" name="color">
+                                <input type="radio" class="custom-control-input text-danger" id="color-1" name="color">
                                 <label class="custom-control-label" for="color-1">Black</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-2" name="color">
+                                <input type="radio" class="custom-control-input text-danger" id="color-2" name="color">
                                 <label class="custom-control-label" for="color-2">White</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-3" name="color">
+                                <input type="radio" class="custom-control-input text-danger" id="color-3" name="color">
                                 <label class="custom-control-label" for="color-3">Red</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-4" name="color">
+                                <input type="radio" class="custom-control-input text-danger" id="color-4" name="color">
                                 <label class="custom-control-label" for="color-4">Blue</label>
                             </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-5" name="color">
+                            <div class="custom-control custom-radio custom-control-inline ">
+                                <input type="radio" class="custom-control-input text-danger" id="color-5" name="color">
                                 <label class="custom-control-label" for="color-5">Green</label>
                             </div>
                         </form>
@@ -101,33 +101,33 @@
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus">
+                                <button class="btn btn-outline-danger btn-minus">
                                 <i class="fa fa-minus"></i>
                                 </button>
                             </div>
-                            <input type="text" class="form-control bg-secondary text-center" value="1">
+                            <input type="text" class="form-control btn-outline-danger text-center" value="1">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
+                                <button class="btn btn-outline-danger btn-plus">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                        <button class="btn btn-outline-danger px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
                     </div>
                     <div class="d-flex pt-2">
                         <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
                         <div class="d-inline-flex">
                             <a class="text-dark px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fa-facebook text-danger"></i>
                             </a>
                             <a class="text-dark px-2" href="">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fa-twitter text-danger"></i>
                             </a>
                             <a class="text-dark px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
+                                <i class="fa fa-linkedin text-danger"></i>
                             </a>
                             <a class="text-dark px-2" href="">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fa-pinterest text-danger"></i>
                             </a>
                         </div>
                     </div>
@@ -136,9 +136,9 @@
             <div class="row px-xl-5">
                 <div class="col">
                     <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                        <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-                        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                        <a class="nav-item nav-link text-danger active" data-toggle="tab" href="#tab-pane-1">Description</a>
+                        <a class="nav-item nav-link text-danger" data-toggle="tab" href="#tab-pane-2">Information</a>
+                        <a class="nav-item nav-link text-danger" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
