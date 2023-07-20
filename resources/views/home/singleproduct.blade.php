@@ -14,13 +14,13 @@
                         </ol>
                         <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{ asset('/') }}images/slider-bg.jpg" class="d-block w-100" alt="...">
+                            <img src="{{ asset('/images/' . $productdata->image) }}" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('/') }}images/slider-bg.jpg" class="d-block w-100" alt="...">
+                            <img src="{{ asset('/images/' . $productdata->image) }}" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('/') }}images/slider-bg.jpg" class="d-block w-100" alt="...">
+                            <img src="{{ asset('/images/' . $productdata->image) }}" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="col-lg-7 pb-5">
-                    <h3 class="font-weight-semi-bold">Colorful Stylish Shirt</h3>
+                    <h3 class="font-weight-semi-bold">{{$productdata->title}}</h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fa fa-star text-danger"></small>
@@ -46,8 +46,8 @@
                         </div>
                         <small class="pt-1">(50 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
-                    <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc invidunt ipsum et, labore clita lorem magna lorem ut. Erat lorem duo dolor no sea nonumy. Accus labore stet, est lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.</p>
+                    <h3 class="font-weight-semi-bold mb-4">${{$productdata->discount_price}}</h3>
+                    <p class="mb-4">{{$productdata->description}}</p>
                     <div class="d-flex mb-3">
                         <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
                         <form>
@@ -143,8 +143,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
                             <h4 class="mb-3">Product Description</h4>
-                            <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                            <p>Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum. Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.</p>
+                            <p>{{$productdata->description}}</p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-2">
                             <h4 class="mb-3">Additional Information</h4>
@@ -243,7 +242,4 @@
 
     </div>
  </section>
-
-
-
 @endsection
