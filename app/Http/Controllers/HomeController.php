@@ -18,7 +18,7 @@ class HomeController extends Controller
         if ( $userType== '1') {
            return view('admin.mainPanel');
         }else{
-        $products = Product::orderByDesc('id')->take(1)->get();
+        $products = Product::orderByDesc('id')->take(6)->get();
         return view('home.main',compact('products'));
         }
     }
