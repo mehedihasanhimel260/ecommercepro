@@ -273,35 +273,4 @@
 
         </div>
     </section>
-    <Script>
-        // Get the quantity input and buttons
-        const quantityInput = document.getElementById("quantityInput");
-        const btnMinus = document.querySelector(".btn-minus");
-        const btnPlus = document.querySelector(".btn-plus");
-
-        // Get the "Add to Cart" button
-        const addToCartBtn = document.getElementById("addToCartBtn");
-
-        // Event listener for the minus button
-        btnMinus.addEventListener("click", () => {
-            let quantity = parseInt(quantityInput.value);
-            if (quantity > 1) {
-                quantity--;
-                quantityInput.value = quantity;
-            }
-        });
-
-        // Event listener for the plus button
-        btnPlus.addEventListener("click", () => {
-            let quantity = parseInt(quantityInput.value);
-            quantity++;
-            quantityInput.value = quantity;
-        });
-
-        // Event listener for "Add to Cart" button (you can add your logic here)
-        addToCartBtn.addEventListener("click", () => {
-            const quantity = parseInt(quantityInput.value);
-            alert(`Added ${quantity} items to cart!`);
-        });
-    </Script>
 @endsection
