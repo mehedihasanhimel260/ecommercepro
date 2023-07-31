@@ -52,66 +52,9 @@
                         </div>
                         <h3 class="font-weight-semi-bold mb-4">${{ $productdata->discount_price }}</h3>
                         <p class="mb-4">{{ $productdata->description }}</p>
-                        <div class="d-flex mb-3">
-                            <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                            <form>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input btn-outline-danger" id="size-1"
-                                        name="size">
-                                    <label class="custom-control-label" for="size-1">XS</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input btn-outline-danger" id="size-2"
-                                        name="size">
-                                    <label class="custom-control-label" for="size-2">S</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input btn-outline-danger" id="size-3"
-                                        name="size">
-                                    <label class="custom-control-label" for="size-3">M</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input btn-outline-danger" id="size-4"
-                                        name="size">
-                                    <label class="custom-control-label" for="size-4">L</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input btn-outline-danger" id="size-5"
-                                        name="size">
-                                    <label class="custom-control-label" for="size-5">XL</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-                            <form>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input text-danger" id="color-1"
-                                        name="color">
-                                    <label class="custom-control-label" for="color-1">Black</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input text-danger" id="color-2"
-                                        name="color">
-                                    <label class="custom-control-label" for="color-2">White</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input text-danger" id="color-3"
-                                        name="color">
-                                    <label class="custom-control-label" for="color-3">Red</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input text-danger" id="color-4"
-                                        name="color">
-                                    <label class="custom-control-label" for="color-4">Blue</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline ">
-                                    <input type="radio" class="custom-control-input text-danger" id="color-5"
-                                        name="color">
-                                    <label class="custom-control-label" for="color-5">Green</label>
-                                </div>
-                            </form>
-                        </div>
+
+                        <form action="{{ url('/carts') }}" method="post">
+                            @csrf
                         <div class="d-flex align-items-center mb-4 pt-2">
                             <div class="input-group quantity mr-3" style="width: 130px;">
                                 <div class="input-group-btn">
@@ -119,7 +62,7 @@
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control btn-outline-danger text-center" value="1"
+                                <input type="text" class="form-control btn-outline-danger text-center" name="quantity" value="1"
                                     id="quantityInput">
                                 <div class="input-group-btn">
                                     <button class="btn btn-outline-danger btn-plus">
@@ -127,10 +70,16 @@
                                     </button>
                                 </div>
                             </div>
-                            <button class="btn btn-outline-danger px-3" id="addToCartBtn">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+                                <input type="hidden" name="product_id" value="{{ $productdata->id}}">
+
+                            <button class="btn btn-outline-danger px-3"  type="submit" id="addToCartBtn">
                                 <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
                             </button>
                         </div>
+
+                    </form>
 
                         <div class="d-flex pt-2">
                             <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>

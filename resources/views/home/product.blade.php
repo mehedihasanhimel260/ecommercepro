@@ -14,9 +14,16 @@
                                 <a href="{{ url('/singleproduct/' . $product->id) }}" class="option1">
                                     View ditails
                                 </a>
-                                <a href="" class="option2">
-                                    Buy Now
-                                </a>
+                               <form action="{{ url('/carts') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+                                <input type="hidden" name="product_id" value="{{ $product->id}}">
+
+                                <input type="hidden" name="quantity" value="1">
+                                <button  class="option2 btn " type="submit">Add to Cart</button>
+                            </form>
+
                             </div>
                         </div>
                         <div class="img-box">

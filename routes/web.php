@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendProductController;
 use App\Http\Controllers\HomeController;
@@ -41,6 +42,14 @@ Route::get('/category/{id}', [CategoryController::class,'destroy']);
 
 Route::resource('/products', ProductController::class);
 Route::get('/singleproduct/{id}', [FrontendProductController::class,'index']);
+
+Route::get('/carts', [CartController::class, 'index']);
+Route::get('/carts/create', [CartController::class, 'create']);
+Route::post('/carts', [CartController::class, 'store']);
+Route::get('/carts/{id}', [CartController::class, 'show']);
+Route::get('/carts/{id}/edit', [CartController::class, 'edit']);
+Route::put('/carts/{id}', [CartController::class, 'update']);
+Route::delete('/carts/{id}', [CartController::class, 'destroy']);
 
 
 // GET|HEAD        products ............................ products.index › ProductController@index   	{{ route('products.create') }}
