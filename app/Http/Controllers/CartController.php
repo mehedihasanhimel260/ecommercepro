@@ -9,7 +9,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $cartsData = Cart::with('user', 'product')->get();
+        $cartsData =  Cart::where('user_id', auth()->id())->with('user', 'product')->get();
         return view('home.cart.index',compact('cartsData'));
     }
 
