@@ -19,32 +19,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row"><img src="{{ asset('/images/p1.png') }}" width="50px" height="50px"></th>
-                            <td>Mark</td>
-                            <td>
-                                <div class="input-group quantity mr-3" style="width: 130px;">
-                                    <div class="input-group-btn">
-                                        <a class="btn btn-outline-danger btn-minus">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
+                        @foreach ($cartsData as $carts)
+                            <tr>
+                                <th scope="row"><img src="{{ asset('/images/' . $carts->product->image) }}"
+                                        width="50px" height="50px">
+                                </th>
+                                <td>{{ $carts->product->title }}</td>
+                                <td>
+                                    <div class="input-group quantity mr-3" style="width: 130px;">
+                                        <div class="input-group-btn">
+                                            <a class="btn btn-outline-danger btn-minus">
+                                                <i class="fa fa-minus"></i>
+                                            </a>
+                                        </div>
+                                        <input type="text" class="form-control btn-outline-danger text-center"
+                                            name="quantity" value="{{ $carts->quantity }}" id="quantityInput">
+                                        <div class="input-group-btn">
+                                            <a class="btn btn-outline-danger btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control btn-outline-danger text-center"
-                                        name="quantity" value="1" id="quantityInput">
-                                    <div class="input-group-btn">
-                                        <a class="btn btn-outline-danger btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                $500
-                            </td>
-                            <td>
-                                <button class="btn "> <i class="fa fa-trash" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                    $500
+                                </td>
+                                <td>
+                                    <form action="{{ url('/carts/' . $carts->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

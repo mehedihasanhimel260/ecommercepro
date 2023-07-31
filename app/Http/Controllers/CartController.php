@@ -9,8 +9,8 @@ class CartController extends Controller
 {
     public function index()
     {
-        // Retrieve all items in the cart
-        return view('home.cart.index');
+        $cartsData = Cart::with('user', 'product')->get();
+        return view('home.cart.index',compact('cartsData'));
     }
 
     public function store(Request $request)
@@ -23,6 +23,13 @@ class CartController extends Controller
         ]);
 
         Cart::create($data);
+        return redirect('/carts');
+    }
+    public function destroy($id)
+    {
+        // Remove a specific item from the cart
+        $cartItem = Cart::findOrFail($id);
+        $cartItem->delete();
         return redirect('/carts');
     }
 }
