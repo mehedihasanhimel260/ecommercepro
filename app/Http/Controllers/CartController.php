@@ -32,4 +32,15 @@ class CartController extends Controller
         $cartItem->delete();
         return redirect('/carts');
     }
+    public function update(Request $request, $id)
+    {
+        // Update a specific item in the cart
+        $data = $request->validate([
+            'quantity' => 'required|integer',
+        ]);
+
+        $cartItem = Cart::findOrFail($id);
+        $cartItem->update($data);
+        return redirect()->back();
+    }
 }
