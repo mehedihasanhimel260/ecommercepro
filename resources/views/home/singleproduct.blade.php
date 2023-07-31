@@ -55,31 +55,33 @@
 
                         <form action="{{ url('/carts') }}" method="post">
                             @csrf
-                        <div class="d-flex align-items-center mb-4 pt-2">
-                            <div class="input-group quantity mr-3" style="width: 130px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-outline-danger btn-minus">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
+                            <div class="d-flex align-items-center mb-4 pt-2">
+                                <div class="input-group quantity mr-3" style="width: 130px;">
+                                    <div class="input-group-btn">
+                                        <a class="btn btn-outline-danger btn-minus">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    </div>
+                                    <input type="text" class="form-control btn-outline-danger text-center"
+                                        name="quantity" value="1" id="quantityInput">
+                                    <div class="input-group-btn">
+                                        <a class="btn btn-outline-danger btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control btn-outline-danger text-center" name="quantity" value="1"
-                                    id="quantityInput">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-outline-danger btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
+                                @if (Auth::user())
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                @endif
+
+                                <input type="hidden" name="product_id" value="{{ $productdata->id }}">
+
+                                <button class="btn btn-outline-danger px-3" type="submit">
+                                    <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
+                                </button>
                             </div>
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-                                <input type="hidden" name="product_id" value="{{ $productdata->id}}">
-
-                            <button class="btn btn-outline-danger px-3"  type="submit" id="addToCartBtn">
-                                <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
-                            </button>
-                        </div>
-
-                    </form>
+                        </form>
 
                         <div class="d-flex pt-2">
                             <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>

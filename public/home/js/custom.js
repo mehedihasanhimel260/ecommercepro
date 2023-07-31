@@ -23,10 +23,10 @@ btnPlus.addEventListener("click", () => {
 });
 
 // Event listener for "Add to Cart" button (you can add your logic here)
-addToCartBtn.addEventListener("click", () => {
-    const quantity = parseInt(quantityInput.value);
-    alert(`Added ${quantity} items to cart!`);
-});
+// addToCartBtn.addEventListener("click", () => {
+//     const quantity = parseInt(quantityInput.value);
+//     console.log(`Added ${quantity} items to cart!`);
+// });
 
 // to get current year
 function getYear() {
