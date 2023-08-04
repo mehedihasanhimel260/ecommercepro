@@ -26,6 +26,9 @@
     });
 
 
+
+
+
 // Event listener for "Add to Cart" button (you can add your logic here)
 // addToCartBtn.addEventListener("click", () => {
 //     const quantity = parseInt(quantityInput.value);

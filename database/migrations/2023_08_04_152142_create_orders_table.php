@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->decimal('total_amount', 8, 2);
-            $table->enum('status', ['pending', 'completed'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'completed'])->default('pending');
             $table->timestamps();
 
             // Add foreign key constraint

@@ -41,12 +41,43 @@ class OrderController extends Controller
 
     // Clear the user's cart (optional, depending on your design)
     Cart::where('user_id', $userId)->delete();
-    return redirect()->back();
+    return redirect('/');
 
     // Redirect to the order details page or show a success message
     // return redirect()->route('order.details', ['orderId' => $order->id]);
     // or return a response with a success message
     // return response()->json(['message' => 'Order placed successfully']);
 
+    }
+
+
+    public function index()
+    {
+        $orders = Order::with('user')->get();
+        return view('admin.oders.index', compact('orders'));
+    }
+
+    // Show details of a specific order
+    public function show($id)
+    {
+        $order = Order::with('user', 'orderItems.product')->findOrFail($id);
+        return view('admin.oders.show ', compact('order'));
+    }
+
+    // Update the status of an order (e.g., processing, shipped, delivered)
+    public function updateStatus(Request $request, $id)
+    {
+        $order = Order::findOrFail($id);
+        $order->status = $request->input('status');
+        $order->save();
+        return redirect()->back()->with('success', 'Order status updated successfully!');
+    }
+
+    // Delete an order
+    public function destroy($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->delete();
+        return redirect()->route('admin.oders.index')->with('success', 'Order deleted successfully!');
     }
 }

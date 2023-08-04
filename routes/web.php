@@ -51,7 +51,15 @@ Route::get('/carts/{id}', [CartController::class, 'show']);
 Route::get('/carts/{id}/edit', [CartController::class, 'edit']);
 Route::put('/carts/{id}', [CartController::class, 'update']);
 Route::delete('/carts/{id}', [CartController::class, 'destroy']);
+
 Route::post('/make-order', [OrderController::class, 'createOrder'])->name('make_order');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+// Show a specific order
+Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+// Update order status
+Route::put('/orders/{id}', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+// Delete an order
+Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
 
 

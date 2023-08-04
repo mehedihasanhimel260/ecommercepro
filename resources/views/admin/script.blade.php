@@ -1,4 +1,5 @@
 
+<script src="{{ asset('/') }}admin/assets/js/admincustom.js"></script>
 <script src="{{ asset('/') }}admin/assets/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
