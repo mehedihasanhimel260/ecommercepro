@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,8 @@ Route::get('/carts/{id}', [CartController::class, 'show']);
 Route::get('/carts/{id}/edit', [CartController::class, 'edit']);
 Route::put('/carts/{id}', [CartController::class, 'update']);
 Route::delete('/carts/{id}', [CartController::class, 'destroy']);
+Route::post('/make-order', [OrderController::class, 'createOrder'])->name('make_order');
+
 
 
 // GET|HEAD        products ............................ products.index › ProductController@index   	{{ route('products.create') }}
